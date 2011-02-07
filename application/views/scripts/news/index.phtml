@@ -4,10 +4,10 @@
 
 <?php foreach($this->news as $ni): ?>
     <div class="news-item">
-        <a href="/news/<?php echo $ni->news_id; ?>">
-            <?php print $ni->news_header; ?>
+        <a href="/news/<?php echo $ni->id; ?>">
+            <?php print $ni->header; ?>
         </a>
-        &nbsp;<span class="small"><?php print date('d.m.Y',$ni->news_date); ?></span>
+        &nbsp;<span class="small"><?php print date('d.m.Y',$ni->dateadded); ?></span>
         <div class="raq">&raquo;</div>
     </div>
 <?php endforeach; ?>

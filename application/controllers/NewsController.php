@@ -20,7 +20,7 @@ class NewsController extends Zend_Controller_Action
         $this->_helper->layout()->home = '/';
 
         $res = $this->_news->fetchAll(
-            $this->_news->select()->limit(15)->order('news_date DESC')
+            $this->_news->select()->limit(15)->order('dateadded DESC')
         );
         $this->view->news = $res;
     }
@@ -29,13 +29,13 @@ class NewsController extends Zend_Controller_Action
     public function viewAction()
     {
         $res = $this->_news->fetchRow(
-            $this->_news->select()->where('news_id = ?', $this->_getParam('id'))
+            $this->_news->select()->where('id = ?', $this->_getParam('id'))
         );
         
         if(count($res) == 0) $this->_redirect('/news/_404_');
 
-        $res->news_smalltext = str_replace('src="/i/', 'src="http://tcs.ru/i/', $res->news_smalltext);
-        $res->news_longtext = str_replace('src="/i/', 'src="http://tcs.ru/i/', $res->news_longtext);
+        $res->smalltext = str_replace('src="/i/', 'src="http://tcs.ru/i/', $res->smalltext);
+        $res->longtext = str_replace('src="/i/', 'src="http://tcs.ru/i/', $res->longtext);
         $this->view->news = $res;
     }
     public function errorAction(){
