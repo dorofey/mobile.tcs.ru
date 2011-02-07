@@ -1,6 +1,7 @@
 <?php foreach($this->products as $prod): ?>
     <div class="news-item">
-        <a href="/product/<?php echo $prod->prod_uniq; ?>/">
+        <!--<a href="/product/<?php /*echo $prod->prod_uniq; */?>/">-->
+        <a href="<?= $this->url(array('id'=>$prod->prod_uniq), 'prodictView') ; ?>/">
             <?php print $prod->prod_name; ?>
         </a>
         <div class="raq-price">

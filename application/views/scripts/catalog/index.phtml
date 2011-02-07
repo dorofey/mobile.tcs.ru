@@ -1,6 +1,6 @@
 <?php foreach($this->catalog as $cat): ?>
     <div class="news-item">
-        <a href="/catalog/<?php echo $cat->cat_id; ?>/">
+        <a href="<?= $this->url(array('id'=>$cat->cat_id), 'catalogCatalog'); ?>/">
             <?php print $cat->cat_name; ?>
         </a>
         <div class="raq">&raquo;</div>

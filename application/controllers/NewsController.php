@@ -32,7 +32,7 @@ class NewsController extends Zend_Controller_Action
             $this->_news->select()->where('id = ?', $this->_getParam('id'))
         );
         
-        if(count($res) == 0) $this->_redirect('/news/_404_');
+        if(count($res) == 0) $this->_redirect($this->view->url(array(),'newsNotFound'));
 
         $res->smalltext = str_replace('src="/i/', 'src="http://tcs.ru/i/', $res->smalltext);
         $res->longtext = str_replace('src="/i/', 'src="http://tcs.ru/i/', $res->longtext);

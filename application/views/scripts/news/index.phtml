@@ -4,7 +4,7 @@
 
 <?php foreach($this->news as $ni): ?>
     <div class="news-item">
-        <a href="/news/<?php echo $ni->id; ?>">
+        <a href="<?= $this->url(array('id'=>$ni->id), 'newsItem'); ?>">
             <?php print $ni->header; ?>
         </a>
         &nbsp;<span class="small"><?php print date('d.m.Y',$ni->dateadded); ?></span>
