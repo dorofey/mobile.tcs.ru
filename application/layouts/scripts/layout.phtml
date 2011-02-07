@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=windows-1251');
+$this->headTitle('TechnoCentre');
+$this->headTitle()->setSeparator(' / ');
+$this->headlink()->appendStylesheet('/css/main.css');
+?>
+<html>
+<head>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headLink(); ?>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.5.min.js"></script>
+    <script>
+        $(function(){
+            $('div.news-item').click(function(evt){
+                if($(this).hasClass('std-link')) return true;
+                evt.preventDefault();
+                var hrf = $(this).children('a').first().attr("href") || "/news/";
+                window.location = hrf;
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="header">
+    ТехноЦентр
+    <a class="button" href="<?php echo $this->layout()->home; ?>">&laquo;</a>
+    <a class="button home" href="/">&uArr;</a>
+</div>
+<?php echo $this->layout()->content; ?>
+</body>
+</html>
+

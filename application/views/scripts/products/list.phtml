@@ -1,0 +1,8 @@
+<?php foreach($this->products as $prod): ?>
+    <div class="news-item">
+        <a href="/product/<?php echo $prod->prod_uniq; ?>/">
+            <?php print $prod->prod_name; ?>
+        </a>
+        <div class="raq">&raquo;</div>
+    </div>
+<?php endforeach; ?>

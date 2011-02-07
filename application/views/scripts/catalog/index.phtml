@@ -1,0 +1,8 @@
+<?php foreach($this->catalog as $cat): ?>
+    <div class="news-item">
+        <a href="/catalog/<?php echo $cat->cat_id; ?>/">
+            <?php print $cat->cat_name; ?>
+        </a>
+        <div class="raq">&raquo;</div>
+    </div>
+<?php endforeach; ?>

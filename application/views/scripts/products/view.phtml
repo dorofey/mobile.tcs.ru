@@ -1,0 +1,19 @@
+<div class="std-item">
+    <h1><?= $this->product->prod_name;?></h1>
+    <?php if($this->product->pic_big){?>
+    <div style="text-align:center;">
+        <img src="http://tcs.ru/i/prodthumb/<?= $this->product->pic_big;?>" />
+    </div>
+    <?php } ?>
+    <p><?= $this->product->txt_big;?></p>
+    <?php if($this->product->prod_site):?>
+    <p>
+        <a href="<?=$this->product->prod_site;?>" target="_blank" class="std-link">Cайт производителя</a>
+    </p>
+    <?php endif; ?>
+    <?php if($this->product->txt_spec && strlen($this->product->txt_spec) < 10000):?>
+    <p>
+        <?=$this->product->txt_spec;?>
+    </p>
+    <?php endif; ?>
+</div>

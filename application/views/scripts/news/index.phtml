@@ -1,0 +1,13 @@
+<style type="text/css">
+
+</style>
+
+<?php foreach($this->news as $ni): ?>
+    <div class="news-item">
+        <a href="/news/<?php echo $ni->news_id; ?>">
+            <?php print $ni->news_header; ?>
+        </a>
+        &nbsp;<span class="small"><?php print date('d.m.Y',$ni->news_date); ?></span>
+        <div class="raq">&raquo;</div>
+    </div>
+<?php endforeach; ?>
