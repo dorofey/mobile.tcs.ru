@@ -1,6 +1,6 @@
 * {
     font-family: 'Lucida Grande', sans-serif;
-    font-size: l;
+    /*font-size: l;*/
     color: #333
 }
 
@@ -62,6 +62,15 @@ body, html {
     text-align: center;
     vertical-align:middle;
     width:18px;
+    height:18px;
+    display:block;
+}
+.raq-price {
+    font-size:small;
+    float:right;
+    color: #999;
+    text-align: center;
+    vertical-align:middle;
     height:18px;
     display:block;
 }

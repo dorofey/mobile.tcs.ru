@@ -6,10 +6,18 @@ class ProductsController extends Zend_Controller_Action
      * @var Application_Model_DbTable_Products
      */
     protected $_products;
+    /**
+     * @var Zend_Db_Adapter_Pdo_Mysql
+     */
+    protected $_db;
+    protected $_dollar;
 
     public function init()
     {
         $this->_products = new Application_Model_DbTable_Products();
+        $this->_db = Zend_Db_Table::getDefaultAdapter();
+        $this->_dollar = $this->_db->query('SELECT * FROM `dollar` LIMIT 1')->fetchObject();
+        $this->view->dollar = (float) $this->_dollar->dollar;
     }
 
     public function indexAction()
@@ -24,7 +32,7 @@ class ProductsController extends Zend_Controller_Action
         $sql = 'SELECT `rel_main` FROM `cat_rel`
                 WHERE `rel_ones` = "' . $id . '"';
 
-        $parent = Zend_Db_Table::getDefaultAdapter()->query($sql);
+        $parent = $this->_db->query($sql);
         $parent->setFetchMode(Zend_Db::FETCH_OBJ);
         $parent = $parent->fetchObject();
 

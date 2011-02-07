@@ -3,6 +3,8 @@
         <a href="/product/<?php echo $prod->prod_uniq; ?>/">
             <?php print $prod->prod_name; ?>
         </a>
-        <div class="raq">&raquo;</div>
+        <div class="raq-price">
+            <?php print round($prod->prod_price * $this->dollar); ?> руб.
+        </div>
     </div>
 <?php endforeach; ?>
