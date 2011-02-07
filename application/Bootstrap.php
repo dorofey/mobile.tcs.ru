@@ -4,13 +4,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 
     protected function _initRoute() {
         /**
-         * @var Zend_Controller_Front
-         */
-        $ctrl = Zend_Controller_Front::getInstance();
-        /**
          * @var Zend_Controller_Router_Rewrite
          */
-        $router = $ctrl->getRouter();
+        $router = Zend_Controller_Front::getInstance()->getRouter();
 
         $router->addRoute('newsItem', new Zend_Controller_Router_Route('/news/:id', array(
             'controller' => 'news',

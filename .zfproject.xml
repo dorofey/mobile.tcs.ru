@@ -24,6 +24,10 @@
           <actionMethod actionName="list"/>
           <actionMethod actionName="view"/>
         </controllerFile>
+        <controllerFile controllerName="Search">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="post"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory enabled="false"/>
@@ -67,6 +71,12 @@
           <viewControllerScriptsDirectory forControllerName="Products">
             <viewScriptFile forActionName="view"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Search">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Search">
+            <viewScriptFile forActionName="post"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -104,6 +114,7 @@
           <testApplicationControllerFile filesystemName="NewsControllerTest.php"/>
           <testApplicationControllerFile filesystemName="CatalogControllerTest.php"/>
           <testApplicationControllerFile filesystemName="ProductsControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="SearchControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>

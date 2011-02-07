@@ -7,7 +7,11 @@
         <a href="<?= $this->url(array('id'=>$ni->id), 'newsItem'); ?>">
             <?php print $ni->header; ?>
         </a>
-        &nbsp;<span class="small"><?php print date('d.m.Y',$ni->dateadded); ?></span>
+        &nbsp;<span class="small">
+            <?php
+                   $d = new Zend_Date($ni->dateadded, Zend_Date::ISO_8601);
+               print $d->toString('d.m.Y'); ?>
+    </span>
         <div class="raq">&raquo;</div>
     </div>
 <?php endforeach; ?>
