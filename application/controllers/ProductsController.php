@@ -41,7 +41,9 @@ class ProductsController extends Zend_Controller_Action
         $res = $this->_products->fetchAll(
             $this->_products->select()->where('prod_cat = ?', $id)->order('prod_name ASC')
         );
-        $this->view->products = $res;
+
+        if($this->_getParam('json')) $this->_helper->json($res->toArray());
+        else $this->view->products = $res;
 
     }
 
@@ -56,7 +58,6 @@ class ProductsController extends Zend_Controller_Action
 
         $this->view->product = $res;
     }
-
 }
 
 

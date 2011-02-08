@@ -24,6 +24,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
             'controller' => 'products',
             'action' => 'list'))
         );
+        $router->addRoute('prodictsListJSON', new Zend_Controller_Router_Route('/products/:id/json', array(
+            'controller' => 'products',
+            'action' => 'list',
+            'json'=>true))
+        );
         $router->addRoute('prodictView', new Zend_Controller_Router_Route('/product/:id', array(
             'controller' => 'products',
             'action' => 'view'))
