@@ -55,7 +55,6 @@ class ProductsController extends Zend_Controller_Action
         $this->_helper->layout()->home = '/products/' . $res->prod_cat . '/';
 
         $this->view->product = $res;
-        Zend_Debug::dump($res);
     }
 
 }
