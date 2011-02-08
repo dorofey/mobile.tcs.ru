@@ -48,17 +48,11 @@ class ProductsController extends Zend_Controller_Action
     public function viewAction()
     {
         $id = $this->_getParam('id');
-        $db = Zend_Db_Table::getDefaultAdapter();
-        $db->setFetchMode(Zend_Db::FETCH_OBJ);
-        $select = $db->select()
-                ->from('prod_temp')
-                ->where('prod_temp.prod_uniq = ?', $id)
-                ->joinLeft('new_products_2', 'prod_temp.prod_uniq = new_products_2.`1c_id`');
-        $res = $db->fetchRow($select);
+
+        $res = $this->_products->getFullProduct($id);
         $this->_helper->layout()->home = '/products/' . $res->prod_cat . '/';
         $this->view->product = $res;
     }
-
 
 }
 
