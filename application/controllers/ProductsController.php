@@ -50,8 +50,12 @@ class ProductsController extends Zend_Controller_Action
         $id = $this->_getParam('id');
 
         $res = $this->_products->getFullProduct($id);
+        $res->quantities = $this->_products->getProductQuantity($res->prod_id);
+
         $this->_helper->layout()->home = '/products/' . $res->prod_cat . '/';
+
         $this->view->product = $res;
+        Zend_Debug::dump($res);
     }
 
 }
