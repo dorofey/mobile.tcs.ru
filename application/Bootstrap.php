@@ -34,5 +34,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
             'action' => 'view'))
         );
     }
+
+    protected function _initExchangeRate() {
+
+        $db = $this->getPluginResource('db')->getDbAdapter();
+        $dollar = $db->query('SELECT * FROM `dollar` LIMIT 1')->fetchObject();
+
+        Zend_Registry::set('db', $db);
+        Zend_Registry::set('dollar', $dollar->dollar);
+    }
 }
 

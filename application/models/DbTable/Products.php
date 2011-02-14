@@ -4,6 +4,7 @@ class Application_Model_DbTable_Products extends Zend_Db_Table_Abstract
 {
 
     protected $_name = 'prod_temp';
+    protected $_primary = 'prod_uniq';
 
     public function getFullProduct($id){
 
@@ -24,14 +25,15 @@ class Application_Model_DbTable_Products extends Zend_Db_Table_Abstract
             );
 
         }
-        $this->getAdapter()->setFetchMode(Zend_Db::FETCH_OBJ);
-        $res = $this->getAdapter()->fetchRow($select);
+        Zend_Registry::get('db')->setFetchMode(Zend_Db::FETCH_OBJ);
+
+        $res = $this->fetchRow($select);
 
         return $res;
     }
     public function getProductQuantity($id) {
-        $adapter = $this->getAdapter();
-        $select = $this->getAdapter()->select()
+        $adapter = Zend_Registry::get('db');
+        $select = $adapter->select()
                 ->from(array('q'=>'prod_quantities'),
                        array('branch'=>'prod_branch',
                              'quantity'=>'prod_quantity'))
