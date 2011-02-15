@@ -18,9 +18,7 @@ class SearchController extends Zend_Controller_Action
     {
         $this->_helper->layout()->home = '/search/';
 
-        $this->_db = Zend_Db_Table::getDefaultAdapter();
-        $this->_dollar = $this->_db->query('SELECT * FROM `dollar` LIMIT 1')->fetchObject();
-        $this->view->dollar = (float) $this->_dollar->dollar;
+        $this->view->dollar = Zend_Registry::get('dollar');
 
         $q = $this->getRequest()->getParam('q', '');
         $products = new Application_Model_DbTable_Products();

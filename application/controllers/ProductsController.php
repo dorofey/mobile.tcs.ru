@@ -21,7 +21,7 @@ class ProductsController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $this->_redirect($this->view->url(array('controller'=>'catalog')));
     }
 
     public function listAction()
